@@ -131,7 +131,7 @@ const handleNAToggle = () => setIncludeNA(!includeNA);
 
 const filteredMovies = useMemo(() => {
     return movies.filter(movie => {
-      const imdbMatches = (movie.imdb !== null && !isNaN(movie.imdb) && movie.imdb >= minImdbFilter && movie.imdb <= maxImdbFilter);
+      const imdbMatches =(minImdbFilter === 0 && maxImdbFilter === 10) || (movie.imdb !== null && !isNaN(movie.imdb) && movie.imdb >= minImdbFilter && movie.imdb <= maxImdbFilter);
 
       const naCategoryMatches = includeNA || (movie.imdb !== null && !isNaN(movie.imdb) && movie.boxoffice !== null && !isNaN(movie.boxoffice));
 

@@ -1,5 +1,4 @@
 .navbar-container {
-    background-color: #282c34; /* Dark background for the nav bar */
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -9,7 +8,8 @@
 }
 
 .navbar-title {
-    font-size: 1.8rem;
+    color: white;
+    font-size: 3.8rem;
     font-weight: bold;
     margin: 0;
 }
@@ -21,8 +21,9 @@
 
 .navbar-link {
     color: white;
+    margin-right: 20px;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 2.0rem;
     padding: 5px 0;
     transition: color 0.2s ease, transform 0.2s ease;
 }

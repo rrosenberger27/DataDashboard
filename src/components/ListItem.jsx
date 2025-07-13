@@ -22,8 +22,10 @@ const ListItem = ({poster, title, year, genre, imdb, boxoffice}) => {
                 {imdb !== null && !isNaN(imdb) && (
                     <p className="list-item-imdb">IMDb: {parseFloat(imdb).toFixed(1)} &#11088;</p>
                 )}
-                {boxoffice !== null && !isNaN(boxoffice) && (
+                {boxoffice !== null && !isNaN(boxoffice) ? (
                     <p className="list-item-boxoffice">Box Office: {`$${boxoffice.toLocaleString()}`} &#128176;</p>
+                ) : (
+                     <p className="list-item-boxoffice">Box Office: {`N/A`} &#128176;</p>
                 )}
             </div>
         </div>

@@ -3,7 +3,7 @@ import "../styles/NavBar.css";
 
 const NavBar = () => {
     return (
-        <div className="nav-bar-container">
+        <div className="navbar-container">
             <h1 className="navbar-title">
                 &#127916; MovieDash!
             </h1>
@@ -16,7 +16,7 @@ const NavBar = () => {
                     &#128269; Search
                 </h2>
                 
-                <h2 className="navbar-lin">
+                <h2 className="navbar-link">
                     &#8505;&#65039; About
                 </h2>
             </div>
