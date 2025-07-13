@@ -7,7 +7,7 @@ const NavBar = () => {
             <h1 className="navbar-title">
                 &#127916; MovieDash!
             </h1>
-            <div className="navabar-section">
+            <div className="navbar-sections">
                 <h2 className="navbar-link">
                     &#128202; Dashboard
                 </h2>

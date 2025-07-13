@@ -81,9 +81,7 @@ useEffect(() => {
                 return response.json();
               })
               .then(movieJson => {
-                // Process movieJson into your movieObject here
                 return {
-                  poster: movieJson.Poster === 'N/A' ? null : movieJson.Poster,
                   title : movieJson.Title || null,
                   year: movieJson.Year || null,
                   genre : movieJson.Genre || null,
@@ -94,7 +92,7 @@ useEffect(() => {
               })
               .catch(error => {
                 console.error("Error fetching movie details:", error);
-                return null; // Return null or some placeholder for failed fetches
+                return null; 
               })
           );
         }
@@ -195,7 +193,7 @@ const averageImdbFiltered = useMemo(() => {
               className='search-input'
             />
             <button type='submit' className='search-button'>
-              &#128269; {/* Magnifying Glass Icon */}
+              &#128269; 
             </button>
           </form>
 

@@ -1,15 +1,9 @@
 import React from "react";
 import "../styles/ListItem.css";
 
-const ListItem = ({poster, title, year, genre, imdb, boxoffice}) => {
+const ListItem = ({title, year, genre, imdb, boxoffice}) => {
     return (
       <div className="list-item-card">
-            {poster ? (
-                <img src={poster} alt={title || "Movie Poster"} className="list-item-poster"
-                     onError={(e) => { e.target.onerror = null; e.target.src="https://via.placeholder.com/300x450?text=No+Poster"; }} />
-            ) : (
-                <div className="list-item-no-poster">No Poster Available</div>
-            )}
             <div className="list-item-info">
                 {title && <h3 className="list-item-title"> {title} </h3>}
                 {(year || genre) && (

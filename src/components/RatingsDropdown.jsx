@@ -12,7 +12,7 @@ const RatingsDropdown = ({ selectedRating, onRatingChange, ratings }) => {
     <div className="ratings-dropdown">
             <button className="dropdown-toggle" onClick={() => setIsOpen(!isOpen)}>
                 Rating: {selectedRating === "any" ? "Any" : selectedRating}
-                <span className="dropdown-arrow">&#9662;</span> {/* down arrow */}
+                <span className="dropdown-arrow">&#9662;</span> 
             </button>
             {isOpen && (
                 <div className="dropdown-menu">

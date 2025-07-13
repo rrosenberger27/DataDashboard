@@ -1,9 +1,10 @@
 .navbar-container {
     color: white;
     padding: 15px 20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -12,11 +13,13 @@
     font-size: 3.8rem;
     font-weight: bold;
     margin: 0;
+    margin-left: 13%;
 }
 
 .navbar-sections {
     display: flex;
-    gap: 30px; /* Space between links */
+    flex-direction: row;
+    gap: 30px; 
 }
 
 .navbar-link {
@@ -29,11 +32,10 @@
 }
 
 .navbar-link:hover {
-    color: #007bff; /* Highlight color on hover */
+    color: #007bff; 
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments for NavBar */
 @media (max-width: 600px) {
     .navbar-container {
         flex-direction: column;
