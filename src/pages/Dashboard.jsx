@@ -4,7 +4,8 @@ import RatingsDropdown from '../components/RatingsDropdown';
 import ImdbSlider from '../components/ImdbSlider';
 import BroadStat from '../components/BroadStat';
 import '../styles/slider.css';
-import.meta.env.VITE_APP_API_KEY
+import PieChart from '../components/PieChart';
+import BarGraph from '../components/BarGraph';
 
 const apiKey = import.meta.env.VITE_APP_API_KEY; 
 
@@ -110,7 +111,7 @@ useEffect(() => {
 
       const shuffledMovies = shuffleArray(uniqueMovies);
       setMovies(shuffledMovies);
-      setTotalMovies(currMovies.length);
+      setTotalMovies(shuffledMovies.length);
 
     } catch (error) {
       console.error("error in fetching movies: ", error);
@@ -173,10 +174,10 @@ const averageImdbFiltered = useMemo(() => {
 
   return (
       <div className='dashboard-content'>
-        {/* place graphs before content here - can choose whether or not 
-      to update the movie graphs with the filters - 
-      1. movies in each rating as pie graph
-      2. display five at a time of movies ranked by their imdb scores - sideways bar graph with title on the left and imdb score going horizontally*/}
+        <div className="graphs-container">
+            <PieChart movies={filteredMovies} />
+            <BarGraph movies={filteredMovies} />
+        </div>
         <div className='broad-stats-container'>
           <BroadStat
             stat={totalMovies.toLocaleString()} 
@@ -219,7 +220,7 @@ const averageImdbFiltered = useMemo(() => {
             <RatingsDropdown
               selectedRating={ratingFilter}
               onRatingChange={handleRatingChange}
-              ratings={["Any", "G", "PG", "PG-13", "R"]}
+              ratings={["Any", "G", "PG", "PG-13", "R", "TV-MA", "Not Rated", "TV-G", "TV-14", "TV-PG", "TV-Y7", "NC-17", "TV-G"]}
             />
 
             <div className='imdb-slider-section'>
