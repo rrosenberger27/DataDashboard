@@ -1,27 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
     return (
         <div className="navbar-container">
             <h1 className="navbar-title">
-                &#127916; MovieDash!
+                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    &#127916; MovieDash!
+                </Link>
             </h1>
             <div className="navbar-sections">
-                <h2 className="navbar-link">
+                <Link to="/" className="navbar-link">
                     &#128202; Dashboard
-                </h2>
-
-                <h2 className="navbar-link">
-                    &#128269; Search
-                </h2>
-                
-                <h2 className="navbar-link">
+                </Link>
+                <Link to="/about" className="navbar-link">
                     &#8505;&#65039; About
-                </h2>
+                </Link>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default NavBar;

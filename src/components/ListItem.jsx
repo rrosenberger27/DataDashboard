@@ -1,11 +1,18 @@
 import React from "react";
 import "../styles/ListItem.css";
 
-const ListItem = ({title, year, genre, imdb, boxoffice}) => {
+const ListItem = ({title, year, genre, imdb, boxoffice, imdbID}) => {
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        if (imdbID) {
+            navigate(`/movie/${imdbID}`);
+        }
+    };
     return (
       <div className="list-item-card">
             <div className="list-item-info">
-                {title && <h3 className="list-item-title"> {title} </h3>}
+                {title && <h3 className="list-item-title" onClick={handleNavigate} style={{ cursor: 'pointer' }}> {title} </h3>}
                 {(year || genre) && (
                     <p className="list-item-subtitle">
                         {year && <span>{year}</span>}
