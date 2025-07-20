@@ -2,7 +2,7 @@
 
 Submitted by: **Riley Rosenberger**
 
-This web app: **displays a listing of 296 movies and some details about them and the entire data in general. Each movie has its own detail view with a poster and some additional content.**
+This web app: **displays a listing of 294 movies and some details about them and the entire data in general. Each movie has its own detail view with a poster and some additional content.**
 
 Time spent: **5** hours spent in total
 
