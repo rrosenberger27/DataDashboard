@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import ListItem from './components/ListItem';
-import RatingsDropdown from './components/RatingsDropdown';
-import ImdbSlider from './components/ImdbSlider';
-import BroadStat from './components/BroadStat';
-import './styles/slider.css';
+import ListItem from '../components/ListItem';
+import RatingsDropdown from '../components/RatingsDropdown';
+import ImdbSlider from '../components/ImdbSlider';
+import BroadStat from '../components/BroadStat';
+import '../styles/slider.css';
 import.meta.env.VITE_APP_API_KEY
 
 const apiKey = import.meta.env.VITE_APP_API_KEY; 
@@ -80,7 +80,7 @@ useEffect(() => {
               .then(movieJson => {
                 return {
                   // include imdb id here as well
-                  imdbId: movieJson.imdbID,
+                  imdbID: movieJson.imdbID,
                   title : movieJson.Title || null,
                   year: movieJson.Year || null,
                   genre : movieJson.Genre || null,
@@ -99,9 +99,16 @@ useEffect(() => {
 
       // Wait for all movie detail fetches to complete
       const detailedMovies = await Promise.all(allMovieDetailPromises);
-      // Filter out any nulls from failed fetches
-      currMovies = detailedMovies.filter(movie => movie !== null);
-      const shuffledMovies = shuffleArray(currMovies);
+
+      const validMovies = detailedMovies.filter(movie => movie && movie.imdbID);
+
+     const uniqueMoviesMap = new Map();
+      validMovies.forEach(movie => {
+        uniqueMoviesMap.set(movie.imdbID, movie);
+      });
+      const uniqueMovies = Array.from(uniqueMoviesMap.values());
+
+      const shuffledMovies = shuffleArray(uniqueMovies);
       setMovies(shuffledMovies);
       setTotalMovies(currMovies.length);
 
@@ -243,8 +250,8 @@ const averageImdbFiltered = useMemo(() => {
           {movies.length === 0 && (
             <p className="loading-message">Loading movies...</p>
           )}
-          {filteredMovies.map((movie, index) => (
-            <ListItem key={movie.imdbID || index} {...movie} />
+          {filteredMovies.map((movie) => (
+            <ListItem key={movie.imdbID} {...movie} />
           ))}
         </div>
       </div>

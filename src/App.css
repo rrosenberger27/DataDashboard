@@ -102,6 +102,11 @@
     padding: 20px;
 }
 
+.slider-values {
+    display: flex;
+    gap: 15px;
+}
+
 @media (max-width: 768px) {
     .dashboard-content {
         padding: 10px;

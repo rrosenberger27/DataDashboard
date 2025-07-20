@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
-import MovieDetail from './pages/MovieDetail';
+import MovieDetailView from './pages/MovieDetailView';
 import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
-        <Route path="/movie/:imdbID" element={<MovieDetail />} />
+        <Route path="/movie/:imdbID" element={<MovieDetailView />} />
       </Routes>
     </div>
   );
